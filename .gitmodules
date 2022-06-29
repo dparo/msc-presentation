@@ -1,0 +1,3 @@
+[submodule "texmf/tex/latex/beamerThemePadovaDEI"]
+	path = texmf/tex/latex/beamerThemePadovaDEI
+	url = https://github.com/electricant/beamerThemePadovaDEI

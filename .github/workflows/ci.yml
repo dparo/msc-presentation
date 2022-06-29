@@ -1,0 +1,30 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  BuildPDF:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Install LaTex
+        run: sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra latexmk
+
+      - name: Copy texmf
+        run: cp -r texmf "$HOME"
+
+      - name: Setup environment variable
+        run: |
+          source "$GITHUB_WORKSPACE/.envrc"
+          echo "TEXMFHOME: $TEXMFHOME"
+          echo "TEXINPUTS: $TEXINPUTS"
+          echo "TEXMFHOME=\"$TEXMFHOME\"" >> $GITHUB_ENV
+          echo "TEXINPUTS=\"$TEXINPUTS\"" >> $GITHUB_ENV
+
+      - name: Compile LaTex document
+        run: |
+          echo "TEXMFHOME: $TEXMFHOME"
+          echo "TEXINPUTS: $TEXINPUTS"
+          make all
