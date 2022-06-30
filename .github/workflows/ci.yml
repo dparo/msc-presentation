@@ -23,6 +23,12 @@ jobs:
           echo "TEXMFHOME=$TEXMFHOME" >> $GITHUB_ENV
           echo "TEXINPUTS=$TEXINPUTS" >> $GITHUB_ENV
 
+      - name: Log TEXMFHOME through kpsewhich
+        run: kpsewhich -var-value TEXMFHOME
+
+      - name: Log TEXINPUTS through kpsewhich
+        run: kpsewhich -var-value TEXINPUTS
+
       - name: Compile LaTex document
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
