@@ -15,14 +15,6 @@ jobs:
       - name: Copy texmf
         run: cp -r texmf "$HOME"
 
-      - name: Setup environment variable
-        run: |
-          source "$GITHUB_WORKSPACE/.envrc"
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          echo "TEXMFHOME: $TEXMFHOME"
-          echo "TEXMFHOME=$TEXMFHOME" >> $GITHUB_ENV
-          echo "TEXINPUTS=$TEXINPUTS" >> $GITHUB_ENV
-
       - name: Log TEXMFHOME through kpsewhich
         run: kpsewhich -var-value TEXMFHOME
 
@@ -31,9 +23,4 @@ jobs:
 
       - name: Compile LaTex document
         run: |
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          echo "TEXMFHOME: $TEXMFHOME"
-          echo "TEXINPUTS: $TEXINPUTS"
-          export TEXMFHOME
-          export TEXINPUTS
           make all
