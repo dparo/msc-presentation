@@ -27,15 +27,12 @@ jobs:
           source "$GITHUB_WORKSPACE/.envrc"
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "TEXMFHOME: $TEXMFHOME"
-          echo "TEXINPUTS: $TEXINPUTS"
           echo "TEXMFHOME=\"$TEXMFHOME\"" >> $GITHUB_ENV
-          echo "TEXINPUTS=\"$TEXINPUTS\"" >> $GITHUB_ENV
 
       - name: Compile LaTex document
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "TEXMFHOME: $TEXMFHOME"
-          echo "TEXINPUTS: $TEXINPUTS"
           make all
 
       - name: Copy PDF Document
