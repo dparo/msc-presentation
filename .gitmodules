@@ -1,0 +1,3 @@
+[submodule "dparo-beamerThemePaddovaDEI"]
+	path = texmf/tex/latex/beamerThemePadovaDEI
+	url = https://github.com/dparo/beamerThemePadovaDEI
