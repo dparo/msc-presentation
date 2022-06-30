@@ -1,0 +1,77 @@
+% Adds comma in in-text citations
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+
+\newcommand{\urlref}[3][blue]{\href{#2}{\color{#1}{#3}}\footnote{{#3}: \url{#2}}}%
+
+\newcommand{\myinputchap}[1]{\input{#1}\clearpage}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\renewcommand{\(}{\left(}                                     % Automatically scaled open paren
+\renewcommand{\)}{\right)}                                    % Automatically scaled close paren
+\renewcommand{\[}{\left[}                                     % Automatically scaled open bracket
+\renewcommand{\]}{\right]}                                    % Automatically scaled close bracket
+
+% Better parenthesized parenthesis: Use the star version '*' to automatically scale these parenthesis
+%%       Example: a \Expr*{ \sum_{i} b_i }
+\DeclarePairedDelimiter{\Expr}{\lparen}{\rparen}
+\DeclarePairedDelimiter{\Tuple}{\lparen}{\rparen}
+\DeclarePairedDelimiter{\Array}{\lbrack}{\rbrack}
+\DeclarePairedDelimiter{\Set}{\lbrace}{\rbrace}
+
+% Modulo function
+\newcommand{\fmod}[2]{\mathop{mod}\Expr*{#1, #2}}
+
+% Abs function
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\SetSize}{\lvert}{\rvert}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+
+% Shorten \mathrr for equation: this is useful to define multi-character variables in mathemtical equations
+\newcommand{\mt}[1]{\mathrm{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+
+\newcommand{\EqStackTwo}[2]{\substack{#1 \\ #2}}
+
+% Underline bar in math mode
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+
+\newcommand{\ctext}[3][RGB]{%
+	\begingroup
+	\definecolor{hlcolor}{#1}{#2}\sethlcolor{hlcolor}%
+	\hl{#3}%
+	\endgroup
+}
+
+\newcommand{\mytodo}[1]{\todo[inline]{TODO: #1}}
+
+% \newcommand{\inlinetodo}[1]{
+% 	\colorbox{BurntOrange}{\parbox{\textwidth}{TODO: #1}}
+% }
+
+\newcommand{\inlinetodo}[1]{
+	\ctext[RGB]{255,128,0}{TODO: #1}
+}
+
+\newcommand{\lorem}{\lipsum[1]}
+
+\newcommand{\bapcod}{\textit{BaPCod}}
+\newcommand{\vrpsolver}{\textit{VRPSolver}}
+
+% algorithm2e package customization
+%   Define \Comment command inside \begin{algorithm}\end{...} environment to define comments
+\SetKw{Not}{not}
+\SetKw{Or}{or}
+\SetKw{And}{and}
+\SetKw{Const}{const}
+\SetKw{Let}{let}
+\SetKwBlock{Condition}{}{}
+\SetKwProg{Proc}{proc}{}{end}
+\SetKwComment{Comment}{/* }{ */}
+\SetKw{Assert}{assert}
+\SetKwRepeat{Do}{do}{while}          % Define do/while construct

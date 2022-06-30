@@ -1,38 +1,38 @@
-\documentclass[a4paper]{beamer}
+\documentclass[a4paper, aspectratio=169]{beamer}
 \usepackage{beamerthemePadovaDEI}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{mathtools}
-\usepackage{lmodern}
-\usepackage{textcomp}
-\usepackage{xcolor}
+\usepackage[utf8]{inputenc}                    % Better handling of inputencoding, i.e. for the actual latex file
 
-\title[Title 1]{Title2}
-\author[Davide Paro]{Davide Paro\\davide.paro@studenti.unipd.it\\Master degree in computer engineering\\Human Data Analytics Project}
-\date{September 15, 2021}
+
+
+
+
+% Better font encoding, i.e. for the actual output
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+
+\usepackage[english]{babel}
+\usepackage{mathptmx}       % Times new roman font
+
+\usepackage{etoolbox}            % Useful for programmatically perform actions in latex: booleans, conditions, string comparisons, lists, iterations, etc
+\usepackage{xcolor}  % To use colors for specific texts, provides the \color{<COLOR>} to color text
+
+\input{Config/flags_decls.tex}
+\input{Config/config.tex}
+
+\title[\Title]{\Title}
+\subtitle{\DegreeName}
+\author[\AuthorName\ \AuthorSurname]{\AuthorName\ \AuthorSurname \quad 1207154}
+\date{\GraduationDate}
+
+\input{Config/pdf_metadata.tex}
+
+\input{Config/packages.tex}
+
+
+\addbibresource{biblio.bib}
+
 
 \begin{document}
-%
-%% title
-\begin{frame}
-	\maketitle
-\end{frame}
-
-\begin{frame}{Introduction}
-	\begin{itemize}
-		\item Hello world
-		\item Foo
-		\item Bar
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Conclusions}
-	Thank, you.
-\end{frame}
-
-\begin{frame}
-	\maketitle
-\end{frame}
-
+\input{Content/slides.tex}
 \end{document}
