@@ -27,7 +27,7 @@ jobs:
           source "$GITHUB_WORKSPACE/.envrc"
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "TEXMFHOME: $TEXMFHOME"
-          echo "TEXMFHOME=\"$TEXMFHOME\"" >> $GITHUB_ENV
+          echo "TEXMFHOME=$TEXMFHOME" >> $GITHUB_ENV
 
       - name: Compile LaTex document
         run: |
