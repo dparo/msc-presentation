@@ -28,13 +28,14 @@ jobs:
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "TEXMFHOME: $TEXMFHOME"
           echo "TEXMFHOME=$TEXMFHOME" >> $GITHUB_ENV
+          echo "TEXINPUTS=$TEXINPUTS" >> $GITHUB_ENV
 
       - name: Compile LaTex document
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "TEXMFHOME: $TEXMFHOME"
+          echo "TEXINPUTS: $TEXINPUTS"
           make all
-
       - name: Copy PDF Document
         run: cp 'build/main.pdf' 'Paro_Davide.pdf'
 
