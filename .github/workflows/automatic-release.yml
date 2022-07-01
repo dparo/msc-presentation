@@ -12,9 +12,10 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      # ...
       - name: Set up Git repository
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Install LaTex
         run: sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra latexmk
