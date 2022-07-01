@@ -28,8 +28,8 @@ jobs:
           source "$GITHUB_WORKSPACE/.envrc"
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "TEXMFHOME: $TEXMFHOME"
+          echo "TENINPUTS: $TEXINPUTS"
           echo "TEXMFHOME=$TEXMFHOME" >> $GITHUB_ENV
-          echo "TEXINPUTS=$TEXINPUTS" >> $GITHUB_ENV
 
       - name: Log TEXMFHOME through kpsewhich
         run: kpsewhich -var-value TEXMFHOME
@@ -42,8 +42,6 @@ jobs:
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "TEXMFHOME: $TEXMFHOME"
           echo "TEXINPUTS: $TEXINPUTS"
-          export TEXMFHOME
-          export TEXINPUTS
           make all
 
       - name: Copy PDF Document
