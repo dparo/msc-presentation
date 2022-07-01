@@ -28,11 +28,39 @@
 \input{Config/pdf_metadata.tex}
 
 \input{Config/packages.tex}
+\input{Config/custom_commands.tex}
+\input{Utils/math_definitions.tex}
 
 
 \addbibresource{biblio.bib}
 
 
 \begin{document}
+\begin{frame}
+	\maketitle
+\end{frame}
+
 \input{Content/slides.tex}
+
+\begin{frame}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\begingroup
+		\fontsize{18pt}{18pt}\selectfont
+		References.
+		\endgroup
+	\end{center}
+\end{frame}
+
+\begin{frame}[t,allowframebreaks]
+	\frametitle{References}
+	\printbibliography
+\end{frame}
+
+\begin{frame}
+	\maketitle
+\end{frame}
+
 \end{document}

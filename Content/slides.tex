@@ -1,7 +1,3 @@
-\begin{frame}
-	\maketitle
-\end{frame}
-
 \begin{frame}{Introduction}
 	The Capacitated Vehicle Routing Problem (\textbf{CVRP}) is an \textcolor{blue}{NP-hard discrete optimization routing problem} with applications in \textcolor{blue}{logistics optimization} (goods/services delivery).
 
@@ -15,14 +11,14 @@
 		\begin{column}{.65\textwidth}
 			We are given:
 			\begin{itemize}
-				\item Customer \textcolor{blue}{locations} within a road network.
+				\item Node's \textcolor{blue}{location} within a road network.
+				\item The central facility: \textcolor{blue}{depot node}.
 				\item The \textcolor{blue}{demand} of each customer.
-				\item The \textcolor{blue}{vehicle capacity}.
-				\item Number of \textcolor{blue}{available trucks}.
+				\item Number of \textcolor{blue}{available vehicles} with their \textcolor{blue}{capacity}.
 			\end{itemize}
 			Objective:
 			\begin{itemize}
-				\item \textcolor{red}{Serve \textbf{all} customers while minimizing the overall routing cost}.
+				\item \textcolor{red}{Find each vehicle's route minimizing the overall routing cost while serving \textbf{all} customers}.
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -59,6 +55,9 @@
 \end{frame}
 
 \begin{frame}{Empirical evaluation}
+	\begin{itemize}
+		\item Running time measured through \textbf{performance profiles} \parencite{dolan2002}.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Results (1/2)}
@@ -97,8 +96,18 @@
 \end{frame}
 
 \begin{frame}{Integer Programming}
-\end{frame}
+	MIP solvers are rather general and can be used to solve a wide range of problems from various fields \parencite{bixby2007progress}.
+	MIP models are, in spirit, a way to mathematically program a solver to achieve the desired solution.
+	A MIP solver can solve a mixed-integer linear programming formulation
+	expressed as \parencite{wolsey1999integer}:
+	\begin{align}
+		 & \max_{x, y} & c^T x + d^T y                                 \\
+		 & \text{s.t.} & A x + B y \le b  \label{eq:general-mip-bound} \\
+		 &             & x \in \R^n                                    \\
+		 &             & y \in \Z_{+}^k,
+	\end{align}
+	where $A \in \R^{m \times n}, B \in \R^{m \times k}$ are matrices and
+	$c \in \R^n, d \in R^k, b \in \R^m$ are vector coefficients.
+	The bound in \cref{eq:general-mip-bound} can also be rewritten in equality and/or greater form.
 
-\begin{frame}
-	\maketitle
 \end{frame}
