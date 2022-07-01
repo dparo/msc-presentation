@@ -15,9 +15,6 @@ jobs:
         run: |
           sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-science texlive-bibtex-extra biber latexmk
 
-      - name: Install texmf in user HOME dir
-        run: cp -r texmf "$HOME"
-
       - name: Setup environment variable
         run: |
           source "$GITHUB_WORKSPACE/.envrc"
