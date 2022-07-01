@@ -27,6 +27,19 @@
 \end{frame}
 
 \begin{frame}{Branch-price-and-cut}
+	\begin{itemize}
+		\item \textcolor{blue}{Branch-price-and-cut}: is an \textbf{exact approach} for solving combinatorial optimization problems. It is an extension of traditional \textcolor{blue}{branch-and-cut} (BAC) frameworks.
+		      \begin{itemize}
+			      \item State-of-the-art in VRPs.
+		      \end{itemize}
+		\item Can tackle huge \textcolor{blue}{integer programming models} described by huge amounts of decision variables (exponential).
+		\item \textcolor{red}{How?}
+		      \begin{itemize}
+			      \item \textcolor{blue}{Column Generation} (CG): decision variables are generated lazily in an attempt to improve the dual bounds and reach optimality.
+			      \item \textcolor{red}{Pricing} is the art of producing decision variables for the BPC approach to evolve.
+			      \item In VRP, decision variables represent \textcolor{blue}{single vehicle feasible routes}.
+		      \end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{The Pricing Sub-problem}
