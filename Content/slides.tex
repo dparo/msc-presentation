@@ -32,10 +32,55 @@
 \begin{frame}{Branch-price-and-cut}
 \end{frame}
 
-\begin{frame}{Conclusions}
-	Thank, you.
+\begin{frame}{The Pricing Sub-problem}
+	The \textcolor{blue}{pricer}, a critical component in BPC frameworks, needs to solve the \textcolor{blue}{pricing sub-problem} (PP) to advance the column generation:
+	\begin{itemize}
+		\item An \textcolor{blue}{Elementary Shortest Path Problem with Capacity Constraints} (\textbf{ESPPCC}) in a reduced cost network with negative cycles.
+		      \begin{itemize}
+			      \item NP-hard problem \parencite{dror1994}.
+		      \end{itemize}
+		\item \textbf{Relax elementarity condition} to make it solvable in pseudo-polynomial time:
+		      \begin{itemize}
+			      \item $q$-routes with 2-cycles elimination \parencite{christofides1969}.
+			      \item $q$-routes with arbitrary $k$-cycles elimination \parencite{christofides1969}.
+			      \item ng-routes \parencite{baldacci2011}.
+		      \end{itemize}
+		\item State-of-the-art solutions for the \textcolor{red}{relaxed} PP are based on \textcolor{blue}{dynamic programming}:
+		      \begin{itemize}
+			      \item \textbf{labeling algorithm} \parencite{desrochers1992, feillet2004}.
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
 
+\begin{frame}{Thesis Contributions}
+\end{frame}
+
+\begin{frame}{Implementation}
+\end{frame}
+
+\begin{frame}{Empirical evaluation}
+\end{frame}
+
+\begin{frame}{Results 1/2}
+
+\end{frame}
+
+\begin{frame}{Results 2/2}
+
+\end{frame}
+
+\begin{frame}{Conclusions and Future Work}
 	\cite{jepsen2014}
+\end{frame}
+
+\begin{frame}{The end}
+	\begin{center}
+		\begingroup
+		\fontsize{18pt}{18pt}\selectfont
+		Thank, you.
+		\endgroup
+	\end{center}
+
 \end{frame}
 
 \begin{frame}
