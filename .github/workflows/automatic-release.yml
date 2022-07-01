@@ -18,7 +18,9 @@ jobs:
           submodules: recursive
 
       - name: Install LaTex
-        run: sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-science latexmk
+        run: |
+          sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-science
+          sudo apt-get install texlive-bibtex-extra biber latexmk
 
       - name: Copy texmf
         run: cp -r texmf "$HOME"
