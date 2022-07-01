@@ -1,7 +1,8 @@
 \begin{frame}{Introduction}
-	The Capacitated Vehicle Routing Problem (\textbf{CVRP}) is an \textcolor{blue}{NP-hard discrete optimization routing problem} with applications in \textcolor{blue}{logistics optimization} (goods/services delivery).
+	The Capacitated Vehicle Routing Problem (\textbf{CVRP}) \parencite{dantzig1959}
+	is an \textcolor{blue}{NP-hard combinatorial optimization routing problem} with applications in \textcolor{blue}{logistics}, such as delivery of goods or services to customers.
 
-	\vspace{0.5cm}
+	\vspace{0.3cm}
 
 	\begin{columns}
 		\begin{column}{.35\textwidth}
@@ -9,10 +10,10 @@
 			\includegraphics[height=4cm]{Imgs/CVRP-example.cropped.pdf}
 		\end{column}
 		\begin{column}{.65\textwidth}
-			We are given:
+			CVRP defined on an undirected graph. We are given:
 			\begin{itemize}
 				\item Node's \textcolor{blue}{location} within a road network.
-				\item The central facility: \textcolor{blue}{depot node}.
+				\item The location of the \textcolor{blue}{depot node}.
 				\item The \textcolor{blue}{demand} of each customer.
 				\item Number of \textcolor{blue}{available vehicles} with their \textcolor{blue}{capacity}.
 			\end{itemize}
