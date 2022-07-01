@@ -12,7 +12,7 @@ jobs:
           submodules: recursive
 
       - name: Install LaTex
-        run: sudo apt-get install texlive texlive-latex-recommended texlive-latex-extra latexmk
+        run: sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra latexmk
 
       - name: Copy texmf
         run: cp -r texmf "$HOME"
@@ -23,7 +23,7 @@ jobs:
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "TEXMFHOME: $TEXMFHOME"
           echo "TENINPUTS: $TEXINPUTS"
-          echo "TEXMFHOME=$TEXMFHOME" >> $GITHUB_ENV
+            # echo "TEXMFHOME=$TEXMFHOME" >> $GITHUB_ENV
 
       - name: Log TEXMFHOME through kpsewhich
         run: kpsewhich -var-value TEXMFHOME
