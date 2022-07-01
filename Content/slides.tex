@@ -37,14 +37,12 @@
 	\begin{columns}
 		\begin{column}{.7\textwidth}
 			\begin{itemize}[<+->]
-				\item \textcolor{blue}{Branch-price-and-cut}: is an \textbf{exact approach} for solving combinatorial optimization problems. It is an extension of traditional \textcolor{blue}{branch-and-cut} (BAC) frameworks.
+				\item \textcolor{blue}{Branch-price-and-cut} (BPC) is an \textbf{exact approach} for solving combinatorial optimization problems. It is an extension of traditional \textcolor{blue}{branch-and-cut} (BAC) frameworks.
 				      \begin{itemize}
 					      \item State-of-the-art VRP solvers.
+					            \pause[\thebeamerpauses]
+					      \item Compared to traditional BAC frameworks, can tackle \textbf{huge} \textcolor{blue}{mixed integer programming} models described by exponential amounts of decision variables.
 				      \end{itemize}
-
-				      \pause[\thebeamerpauses]
-
-				\item Compared to traditional BAC frameworks, can tackle huge \textcolor{blue}{mixed integer programming models} described by exponential amounts of decision variables.
 			\end{itemize}
 		\end{column}
 		\begin{column}{.3\textwidth}
@@ -66,23 +64,42 @@
 	\begin{itemize}[<+->]
 		\item \textcolor{red}{How?}
 		      \begin{itemize}
-			      \item \textcolor{blue}{Column Generation} (CG): decision variables are generated lazily in an attempt to improve the dual bounds and reach optimality.
+			      \item \textcolor{blue}{Column Generation} (CG): decision variables are generated lazily.
 			            \begin{itemize}
 				            \item In VRP, decision variables represent \textcolor{blue}{single vehicle feasible routes}.
 			            \end{itemize}
-			      \item \textcolor{red}{Pricing} in CVRP, is the art of feeding the BPC approach with good reduced cost routes to improve the dual bounds.
+			      \item \textcolor{red}{\textbf{Pricing}} in CVRP, is the art of feeding the BPC approach with good reduced cost routes with the aim of improving the dual bounds and reaching optimality
+			            of the master problem.
 		      \end{itemize}
-
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Contemporary approaches for pricing}
+\begin{frame}{Contemporary Approaches for Pricing}
 \end{frame}
 
 \begin{frame}{Thesis Contributions}
 \end{frame}
 
 \begin{frame}{Implementation}
+	\begin{columns}
+		\begin{column}{.85\textwidth}
+			\begin{itemize}
+				\item Branch-and-cut implementation based on the IBM ILOG CPLEX optimizer.
+				\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation.
+				\item Separation of \textcolor{blue}{cutting-planes} both for integral and fractional solutions:
+				      \begin{itemize}
+					      \item GSEC
+					      \item RCC
+					      \item GLM
+				      \end{itemize}
+				\item Push relabel max-flow and Gomory-Hu trees employed for fractional separation.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.15\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{./Imgs/IBM-ILOG-CPLEX-logo.png}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Empirical evaluation}
