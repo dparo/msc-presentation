@@ -19,10 +19,18 @@ jobs:
 
       - name: Install LaTex
         run: |
-          sudo apt-get install --no-install-recommends texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-science texlive-bibtex-extra biber latexmk
+          sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-science texlive-bibtex-extra biber latexmk
 
       - name: Install texmf in user HOME dir
         run: cp -r texmf "$HOME"
+
+      - name: Setup environment variable
+        run: |
+          source "$GITHUB_WORKSPACE/.envrc"
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "TEXMFHOME: $TEXMFHOME"
+          echo "TENINPUTS: $TEXINPUTS"
+          echo "TEXMFHOME=$TEXMFHOME" >> $GITHUB_ENV
 
       - name: Log TEXMFHOME through kpsewhich
         run: kpsewhich -var-value TEXMFHOME
