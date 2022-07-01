@@ -5,77 +5,78 @@
 	\vspace{0.3cm}
 
 	\begin{columns}
+
 		\begin{column}{.35\textwidth}
-			\centering
-			\includegraphics[height=4cm]{Imgs/CVRP-example.cropped.pdf}
+			\onslide<+->{
+				\centering
+				\includegraphics[height=4cm]{Imgs/CVRP-example.cropped.pdf}
+			}
 		\end{column}
 		\begin{column}{.65\textwidth}
-			CVRP defined on an undirected graph. We are given:
-			\begin{itemize}
-				\item A \textcolor{blue}{central depot node}.
-				\item Nodes' \textcolor{blue}{locations}.
-				\item The \textcolor{blue}{demands} of the individual customers.
-				\item The amount of \textcolor{blue}{available vehicles} with their \textcolor{blue}{capacity}.
-			\end{itemize}
-			Objective:
-			\begin{itemize}
-				\item \textcolor{red}{Minimize overall routing costs while meeting the needs of \textbf{all} customers.}
-			\end{itemize}
+			\onslide<+->{
+				CVRP defined on an undirected graph. We are given:
+				\begin{itemize}[<+->]
+					\item A \textcolor{blue}{central depot node}.
+					\item Nodes' \textcolor{blue}{locations}.
+					\item The \textcolor{blue}{demands} of the individual customers.
+					\item The amount of \textcolor{blue}{available vehicles} with their \textcolor{blue}{capacity}.
+				\end{itemize}
+
+				\onslide<+->{
+					Objective:
+					\begin{itemize}
+						\item \textcolor{red}{Minimize overall routing costs while meeting the needs of \textbf{all} customers.}
+					\end{itemize}
+				}
+			}
 		\end{column}
 	\end{columns}
-
 \end{frame}
 
 \begin{frame}{Branch-price-and-cut}
 	\begin{columns}
-		\begin{column}{.8\textwidth}
-
-			\begin{itemize}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}[<+->]
 				\item \textcolor{blue}{Branch-price-and-cut}: is an \textbf{exact approach} for solving combinatorial optimization problems. It is an extension of traditional \textcolor{blue}{branch-and-cut} (BAC) frameworks.
 				      \begin{itemize}
-					      \item State-of-the-art in VRPs.
+					      \item State-of-the-art VRP solvers.
 				      \end{itemize}
+
+				      \pause[\thebeamerpauses]
+
 				\item Compared to traditional BAC frameworks, can tackle huge \textcolor{blue}{mixed integer programming models} described by exponential amounts of decision variables.
-				\item \textcolor{red}{How?}
-				      \begin{itemize}
-					      \item \textcolor{blue}{Column Generation} (CG): decision variables are generated lazily in an attempt to improve the dual bounds and reach optimality.
-					      \item \textcolor{red}{Pricing} is the art of producing decision variables for the BPC approach to evolve.
-					      \item In VRP, decision variables represent \textcolor{blue}{single vehicle feasible routes}.
-				      \end{itemize}
 			\end{itemize}
 		\end{column}
-		\begin{column}{.2\textwidth}
-			\begin{tiny}
+		\begin{column}{.3\textwidth}
+			{
+				\fontsize{9.5pt}{9.5pt}\selectfont
+
 				\begin{align*}
 					\min_{\lambda} \quad z_\mt{SC}(\lambda) & = \sum_{p \in P}  c_p \lambda_p                                      \\
 					                                        & \sum_{p \in P} \lambda_{p} = K                                       \\
 					                                        & \sum_{p \in P}  a_{ip} \lambda_p \ge 1       \quad \forall i \in V_0 \\
 					                                        & \lambda_p                    \in \Set*{0, 1} \quad \forall p \in P.
 				\end{align*}
-			\end{tiny}
+			}
 		\end{column}
-
 	\end{columns}
+
+	\pause[\thebeamerpauses]
+
+	\begin{itemize}[<+->]
+		\item \textcolor{red}{How?}
+		      \begin{itemize}
+			      \item \textcolor{blue}{Column Generation} (CG): decision variables are generated lazily in an attempt to improve the dual bounds and reach optimality.
+			            \begin{itemize}
+				            \item In VRP, decision variables represent \textcolor{blue}{single vehicle feasible routes}.
+			            \end{itemize}
+			      \item \textcolor{red}{Pricing} in CVRP, is the art of feeding the BPC approach with good reduced cost routes to improve the dual bounds.
+		      \end{itemize}
+
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{The Pricing Sub-problem}
-	To advance the column generation, the \textcolor{blue}{pricer}, a critical component in BPC frameworks, needs to solve the \textcolor{blue}{pricing sub-problem} (PP):
-	\begin{itemize}
-		\item An \textcolor{blue}{Elementary Shortest Path Problem with Capacity Constraints} (\textbf{ESPPCC}) in a reduced cost network with negative cycles.
-		      \begin{itemize}
-			      \item NP-hard problem \parencite{dror1994}.
-		      \end{itemize}
-		\item \textbf{Relax elementarity condition} to make it solvable in pseudo-polynomial time:
-		      \begin{itemize}
-			      \item $q$-routes with 2-cycles elimination \parencite{christofides1969}.
-			      \item $q$-routes with arbitrary $k$-cycles elimination \parencite{christofides1969}.
-			      \item ng-routes \parencite{baldacci2011}.
-		      \end{itemize}
-		\item State-of-the-art solutions for the \textcolor{red}{relaxed} PP are based on \textcolor{blue}{dynamic programming}:
-		      \begin{itemize}
-			      \item \textbf{labeling algorithm} \parencite{desrochers1992, feillet2004}.
-		      \end{itemize}
-	\end{itemize}
+\begin{frame}{Contemporary approaches for pricing}
 \end{frame}
 
 \begin{frame}{Thesis Contributions}
@@ -120,7 +121,7 @@
 	\begin{center}
 		\begingroup
 		\fontsize{18pt}{18pt}\selectfont
-		Appendix.
+		Additional material.
 		\endgroup
 	\end{center}
 \end{frame}
@@ -151,4 +152,24 @@
 		                                        & \sum_{p \in P}  a_{ip} \lambda_p \ge 1       & \quad \forall i \in V_0 \label{eq:set-covering-customers-visited-by-exactly-one-route} \\
 		                                        & \lambda_p                    \in \Set*{0, 1} & \quad \forall p \in P \label{eq:set-covering-lambda-mip-var-bounds}.
 	\end{align}
+\end{frame}
+
+\begin{frame}{The Pricing Sub-problem}
+	To advance the column generation, the \textcolor{blue}{pricer}, a critical component in BPC frameworks, needs to solve the \textcolor{blue}{pricing sub-problem} (PP):
+	\begin{itemize}
+		\item An \textcolor{blue}{Elementary Shortest Path Problem with Capacity Constraints} (\textbf{ESPPCC}) in a reduced cost network with negative cycles.
+		      \begin{itemize}
+			      \item NP-hard problem \parencite{dror1994}.
+		      \end{itemize}
+		\item \textbf{Relax elementarity condition} to make it solvable in pseudo-polynomial time:
+		      \begin{itemize}
+			      \item $q$-routes with 2-cycles elimination \parencite{christofides1969}.
+			      \item $q$-routes with arbitrary $k$-cycles elimination \parencite{christofides1969}.
+			      \item ng-routes \parencite{baldacci2011}.
+		      \end{itemize}
+		\item State-of-the-art solutions for the \textcolor{red}{relaxed} PP are based on \textcolor{blue}{dynamic programming}:
+		      \begin{itemize}
+			      \item \textbf{labeling algorithm} \parencite{desrochers1992, feillet2004}.
+		      \end{itemize}
+	\end{itemize}
 \end{frame}
