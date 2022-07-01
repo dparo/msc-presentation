@@ -21,22 +21,9 @@ jobs:
         run: |
           sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-science texlive-bibtex-extra lmodern biber latexmk
 
-      - name: Setup environment variable
-        run: |
-          source "$GITHUB_WORKSPACE/.envrc"
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          echo "TEXMFHOME: $TEXMFHOME"
-          echo "TENINPUTS: $TEXINPUTS"
-          echo "TEXMFHOME=$TEXMFHOME" >> $GITHUB_ENV
-
-      - name: Log TEXMFHOME through kpsewhich
-        run: kpsewhich -var-value TEXMFHOME
-
-      - name: Log TEXINPUTS through kpsewhich
-        run: kpsewhich -var-value TEXINPUTS
-
       - name: Compile LaTex document
         run: |
+          source .envrc
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "TEXMFHOME: $TEXMFHOME"
           echo "TEXINPUTS: $TEXINPUTS"
