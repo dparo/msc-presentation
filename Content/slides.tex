@@ -75,9 +75,44 @@
 \end{frame}
 
 \begin{frame}{Contemporary Approaches for Pricing}
+	\onslide<+->{
+
+		\begin{itemize}[<+->]
+			\item Pricing Problem (PP) in its "natural" form is NP-hard \parencite{dror1994}.
+			      \begin{itemize}
+				      \item \textcolor{olive}{Relaxation} of the pricing problem to make it solvable in \textcolor{blue}{pseudo-polynomial time}.
+			      \end{itemize}
+			\item \textbf{labeling algorithm} \parencite{desrochers1992,feillet2004}: \textcolor{blue}{dynamic programming} algorithm to solve the \textcolor{olive}{relaxed PP}.
+
+		\end{itemize}
+	}
+
+	\onslide<+->{
+
+		\begin{itemize}
+			\item \textcolor{red}{\textbf{Issues with Contemporary approaches}}:
+			      \begin{itemize}[<+->]
+				      \item \textcolor{olive}{relaxing} the PP worsens the dual bounds fed to the BPC (increasing column generation time).
+				      \item \textbf{labeling} algorithm:
+				            \begin{itemize}
+					            \item Its performance degrades as the \textcolor{blue}{vehicle capacity increases} (limiting its applicability).
+					            \item Limited by single threaded performance.
+				            \end{itemize}
+			      \end{itemize}
+		\end{itemize}
+	}
 \end{frame}
 
-\begin{frame}{Thesis Contributions}
+\begin{frame}{Contributions}
+	We propose:
+	\begin{itemize}
+		\item A \textcolor{blue}{branch-and-cut} approach for the \textcolor{olive}{\textbf{non}-relaxed} pricing problem.
+		      \begin{itemize}
+			      \item Fixes issues described earlier.
+			      \item Almost no contributions on this domain (except \parencite{jepsen2014}).
+		      \end{itemize}
+		\item We test its performance against state-of-the-art \textbf{labeling algorithm} as the vehicle capacity increases.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Implementation}
@@ -185,7 +220,7 @@
 			      \item $q$-routes with arbitrary $k$-cycles elimination \parencite{christofides1969}.
 			      \item ng-routes \parencite{baldacci2011}.
 		      \end{itemize}
-		\item State-of-the-art solutions for the \textcolor{red}{relaxed} PP are based on \textcolor{blue}{dynamic programming}:
+		\item State-of-the-art solutions for the \textcolor{olive}{relaxed} PP are based on \textcolor{blue}{dynamic programming}:
 		      \begin{itemize}
 			      \item \textbf{labeling algorithm} \parencite{desrochers1992, feillet2004}.
 		      \end{itemize}
