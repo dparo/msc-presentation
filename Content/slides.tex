@@ -82,7 +82,10 @@
 			      \begin{itemize}[<.->]
 				      \item \textcolor{olive}{Relaxation} of the pricing problem to make it solvable in \textcolor{blue}{pseudo-polynomial time}.
 			      \end{itemize}
-			\item \textbf{labeling algorithm} \parencite{desrochers1992,feillet2004}: \textcolor{blue}{dynamic programming} algorithm to solve the \textcolor{olive}{relaxed PP}.
+			\item \textcolor{blue}{Dynamic programming} algorithm to solve the \textcolor{olive}{relaxed PP}:
+			      \begin{itemize}[<.->]
+				      \item \textbf{labeling algorithm} \parencite{desrochers1992,feillet2004}
+			      \end{itemize}
 
 		\end{itemize}
 	}
@@ -92,28 +95,34 @@
 	\onslide<+->{
 
 		\begin{itemize}
-			\item \textcolor{red}{\textbf{Issues with Contemporary approaches}}:
+			\item \textcolor{red}{\textbf{Two major issues with contemporary approaches}}:
 			      \begin{enumerate}
 				      \item (weak) \textcolor{olive}{relaxing} the PP worsens the dual bounds fed to the BPC (increasing column generation time).
 				            \begin{itemize}
 					            \item \textcolor{blue}{Improved in later years} thanks to "smart" relaxations \parencite{baldacci2011}.
 				            \end{itemize}
-				      \item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases}, limiting its applicability to modern distribution problems.
+				      \item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} (longer routes), limiting its applicability to modern distribution problems.
 			      \end{enumerate}
 		\end{itemize}
 	}
 \end{frame}
 
-\begin{frame}{Contributions}
-	Proposed solution:
-	\begin{enumerate}
-		\item A \textcolor{blue}{branch-and-cut} approach for the \textcolor{olive}{\textbf{non}-relaxed} pricing problem.
-		      \begin{itemize}
-			      \item Fixes issues described earlier.
-			      \item Almost no contributions on this domain (except \parencite{jepsen2014}).
-		      \end{itemize}
-		\item We test its performance against state-of-the-art \textbf{labeling algorithm} as the vehicle capacity increases.
-	\end{enumerate}
+\begin{frame}{Proposed solution}
+	\begin{columns}
+		\begin{column}{0.3\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{./Imgs/idea.png}
+		\end{column}
+		\begin{column}{0.7\textwidth}
+			\begin{enumerate}
+				\item A \textcolor{blue}{branch-and-cut} approach for the \textcolor{olive}{\textbf{non}-relaxed} pricing problem.
+				      \begin{itemize}
+					      \item Almost no works on this domain, except \parencite{jepsen2014}.
+				      \end{itemize}
+				\item Verify its competitiveness at solving the PP as the \textcolor{blue}{vehicle capacity increases}.
+			\end{enumerate}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Implementation}
@@ -149,9 +158,17 @@
 \end{frame}
 
 \begin{frame}{Empirical evaluation}
-	\begin{itemize}
-		\item Running time measured through \textbf{performance profiles} \parencite{dolan2002}.
-	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.2\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{./Imgs/testing.png}
+		\end{column}
+		\begin{column}{0.8\textwidth}
+			\begin{itemize}
+				\item Running time measured through \textbf{performance profiles} \parencite{dolan2002}.
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Results (1/2)}
@@ -163,7 +180,6 @@
 \end{frame}
 
 \begin{frame}{Conclusions and Future Work}
-	\cite{jepsen2014}
 \end{frame}
 
 \begin{frame}{The end}
