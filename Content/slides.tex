@@ -93,18 +93,17 @@
 			\item \textcolor{red}{\textbf{Issues with Contemporary approaches}}:
 			      \begin{itemize}[<+->]
 				      \item \textcolor{olive}{relaxing} the PP worsens the dual bounds fed to the BPC (increasing column generation time).
-				      \item \textbf{labeling} algorithm:
 				            \begin{itemize}
-					            \item Its performance degrades as the \textcolor{blue}{vehicle capacity increases} (limiting its applicability).
-					            \item Limited by single threaded performance.
+					            \item \textcolor{blue}{Improved in later years} thanks to "smart" relaxations \parencite{baldacci2011}.
 				            \end{itemize}
+				      \item \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} (limiting its applicability):
 			      \end{itemize}
 		\end{itemize}
 	}
 \end{frame}
 
 \begin{frame}{Contributions}
-	We propose:
+	Proposed solution:
 	\begin{itemize}
 		\item A \textcolor{blue}{branch-and-cut} approach for the \textcolor{olive}{\textbf{non}-relaxed} pricing problem.
 		      \begin{itemize}
@@ -119,16 +118,14 @@
 	\begin{columns}
 		\begin{column}{.85\textwidth}
 			\begin{itemize}
-				\item Branch-and-cut implementation based on the IBM ILOG CPLEX optimizer.
-				\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
+				\item Branch-and-cut implementation based on the \textcolor{blue}{IBM ILOG CPLEX optimizer}.
 				\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation.
-				\item Separation of \textcolor{blue}{cutting-planes} both for integral and fractional solutions:
+				\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
+				\item Some implementation details:
 				      \begin{itemize}
-					      \item GSEC
-					      \item RCC
-					      \item GLM
+					      \item Separation of \textcolor{blue}{cutting-planes} both for integral and fractional solutions: GSEC, RCC, GLM.
+					      \item Push relabel max-flow and Gomory-Hu trees employed for fractional separation.
 				      \end{itemize}
-				\item Push relabel max-flow and Gomory-Hu trees employed for fractional separation.
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.15\textwidth}
