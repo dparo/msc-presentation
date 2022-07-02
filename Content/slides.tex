@@ -79,7 +79,7 @@
 
 		\begin{itemize}[<+->]
 			\item Pricing Problem (PP) in its "natural" form is NP-hard \parencite{dror1994}.
-			      \begin{itemize}
+			      \begin{itemize}[<.->]
 				      \item \textcolor{olive}{Relaxation} of the pricing problem to make it solvable in \textcolor{blue}{pseudo-polynomial time}.
 			      \end{itemize}
 			\item \textbf{labeling algorithm} \parencite{desrochers1992,feillet2004}: \textcolor{blue}{dynamic programming} algorithm to solve the \textcolor{olive}{relaxed PP}.
@@ -98,7 +98,7 @@
 				            \begin{itemize}
 					            \item \textcolor{blue}{Improved in later years} thanks to "smart" relaxations \parencite{baldacci2011}.
 				            \end{itemize}
-				      \item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} (limiting its applicability):
+				      \item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases}, limiting its applicability to modern distribution problems.
 			      \end{enumerate}
 		\end{itemize}
 	}
@@ -106,14 +106,14 @@
 
 \begin{frame}{Contributions}
 	Proposed solution:
-	\begin{itemize}
+	\begin{enumerate}
 		\item A \textcolor{blue}{branch-and-cut} approach for the \textcolor{olive}{\textbf{non}-relaxed} pricing problem.
 		      \begin{itemize}
 			      \item Fixes issues described earlier.
 			      \item Almost no contributions on this domain (except \parencite{jepsen2014}).
 		      \end{itemize}
 		\item We test its performance against state-of-the-art \textbf{labeling algorithm} as the vehicle capacity increases.
-	\end{itemize}
+	\end{enumerate}
 \end{frame}
 
 \begin{frame}{Implementation}
