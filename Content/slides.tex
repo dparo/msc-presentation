@@ -69,8 +69,7 @@
 			            \begin{itemize}
 				            \item In VRP, decision variables represent \textcolor{blue}{single vehicle feasible routes}.
 			            \end{itemize}
-			      \item \textcolor{red}{\textbf{Pricing}} in CVRP, is the art of feeding the BPC approach with good reduced cost routes with the aim of improving the dual bounds and reaching optimality
-			            of the master problem.
+			      \item \textcolor{red}{\textbf{Pricing}} in CVRP, is the art of feeding the BPC approach with good reduced cost routes to bring it towards fast optimality convergence.
 		      \end{itemize}
 	\end{itemize}
 \end{frame}
@@ -79,11 +78,11 @@
 	\onslide<+->{
 
 		\begin{itemize}[<+->]
-			\item Pricing Problem (PP) in its "natural" form is \textbf{NP-hard} \parencite{dror1994}.
+			\item Pricing Problem (PP) in its "natural" form is an \textbf{NP-hard} combinatorial optimization problem \parencite{dror1994}.
 			      \begin{itemize}[<.->]
 				      \item \textcolor{olive}{Relaxation} of the pricing problem to make it solvable in \textcolor{blue}{pseudo-polynomial time}.
 			      \end{itemize}
-			\item \textcolor{blue}{Dynamic programming} algorithms (exact and heuristics) to solve the \textcolor{olive}{relaxed PP}:
+			\item \textcolor{blue}{Dynamic programming} algorithms (exact and heuristics) to solve the \textcolor{olive}{relaxed} PP:
 			      \begin{itemize}[<.->]
 				      \item \textbf{labeling algorithm} proposed in \textcite{desrochers1992,feillet2004}
 			      \end{itemize}
@@ -91,7 +90,7 @@
 		\end{itemize}
 	}
 
-	\vspace{1cm}
+	\vspace{0.5cm}
 
 	\onslide<+->{
 
@@ -108,7 +107,7 @@
 	}
 \end{frame}
 
-\begin{frame}{Proposed solution}
+\begin{frame}{Contributions}
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
 			\centering
@@ -167,7 +166,7 @@
 		\begin{column}{0.8\textwidth}
 			\begin{itemize}
 				\item We've modified the commonly employed traditional instances proposed in
-				      \textcite{dantzig1959, christofides1969, gaskell1967bases, gillett1974heuristic,christofides1979vehicle,fisher1994,augerat1995}.
+				      \cite{dantzig1959, christofides1969, gaskell1967bases, gillett1974heuristic,christofides1979vehicle,fisher1994,augerat1995}.
 
 				\item Running time measured through \textbf{performance profiles} \parencite{dolan2002}.
 			\end{itemize}
