@@ -1,8 +1,8 @@
 \begin{frame}{Introduction}
 	The Capacitated Vehicle Routing Problem (\textbf{CVRP}) \parencite{dantzig1959}
-	is an \textcolor{blue}{NP-hard combinatorial optimization routing problem} with applications in \textcolor{blue}{logistics}, such as delivery of goods or services to customers.
+	is an \textcolor{blue}{NP-hard combinatorial optimization routing problem} with applications in \textcolor{blue}{logistics} (transportation, distribution, delivery).
 
-	\vspace{0.3cm}
+	\vspace{0.25cm}
 
 	\begin{columns}
 
@@ -14,20 +14,20 @@
 		\end{column}
 		\begin{column}{.65\textwidth}
 			\onslide<+->{
-				CVRP defined on an undirected graph. We are given:
 				\begin{itemize}[<+->]
-					\item A \textcolor{blue}{central depot node}.
-					\item Nodes' \textcolor{blue}{locations}.
-					\item The \textcolor{blue}{demands} of the individual customers.
-					\item The amount of \textcolor{blue}{available vehicles} with their \textcolor{blue}{capacity}.
-				\end{itemize}
+					\item CVRP defined on a complete graph. We are given:
+					      \begin{itemize}[<.->]
+						      \item The amount of \textcolor{blue}{available vehicles} with their \textcolor{blue}{capacity}.
+						      \item A \textcolor{blue}{central depot} where vehicles are stationed.
+						      \item Customers' \textcolor{blue}{locations}.
+						      \item The \textcolor{blue}{demands} of the individual customers.
+					      \end{itemize}
 
-				\onslide<+->{
-					Objective:
-					\begin{itemize}
-						\item \textcolor{red}{Minimize overall routing costs while meeting the needs of \textbf{all} customers.}
-					\end{itemize}
-				}
+					\item Objective:
+					      \begin{itemize}[<.->]
+						      \item \textcolor{red}{Minimize overall routing costs while meeting the needs of \textbf{all} customers.}
+					      \end{itemize}
+				\end{itemize}
 			}
 		\end{column}
 	\end{columns}
@@ -37,9 +37,10 @@
 	\begin{columns}
 		\begin{column}{.7\textwidth}
 			\begin{itemize}[<+->]
-				\item \textcolor{blue}{Branch-price-and-cut} (BPC) is an \textbf{exact approach} for solving combinatorial optimization problems. It is an extension of traditional \textcolor{blue}{branch-and-cut} (BAC) frameworks.
+				\item \textcolor{blue}{Branch-price-and-cut} (BPC) is an \textbf{exact approach} for solving combinatorial optimization problems.
 				      \begin{itemize}
-					      \item State-of-the-art VRP solvers.
+					      \item It is an extension of traditional \textcolor{blue}{branch-and-cut} (BAC) frameworks.
+					      \item State-of-the-art VRP solvers in the last two decades.
 					            \pause[\thebeamerpauses]
 					      \item Compared to traditional BAC frameworks, can tackle \textbf{huge} \textcolor{blue}{mixed integer programming} models described by exponential amounts of decision variables.
 				      \end{itemize}
@@ -82,7 +83,7 @@
 			      \begin{itemize}[<.->]
 				      \item \textcolor{olive}{Relaxation} of the pricing problem to make it solvable in \textcolor{blue}{pseudo-polynomial time}.
 			      \end{itemize}
-			\item \textcolor{blue}{Dynamic programming} algorithm to solve the \textcolor{olive}{relaxed PP}:
+			\item \textcolor{blue}{Dynamic programming} algorithms (exact and heuristics) to solve the \textcolor{olive}{relaxed PP}:
 			      \begin{itemize}[<.->]
 				      \item \textbf{labeling algorithm} \parencite{desrochers1992,feillet2004}
 			      \end{itemize}
@@ -99,7 +100,7 @@
 			      \begin{enumerate}[<+->]
 				      \item (weak) \textcolor{olive}{relaxing} the PP worsens the dual bounds fed to the BPC (increasing column generation time).
 				            \begin{itemize}[<.->]
-					            \item \textcolor{blue}{Improved in later years} thanks to "smart" relaxations \parencite{baldacci2011}.
+					            \item \textcolor{blue}{Improved in last decade} thanks to "smart" relaxations \parencite{baldacci2011}.
 				            \end{itemize}
 				      \item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} (longer routes), limiting its applicability to modern distribution problems.
 			      \end{enumerate}
@@ -115,7 +116,7 @@
 		\end{column}
 		\begin{column}{0.7\textwidth}
 			\begin{enumerate}
-				\item A \textcolor{blue}{branch-and-cut} approach for the \textcolor{olive}{\textbf{non}-relaxed} pricing problem.
+				\item An exact \textcolor{blue}{branch-and-cut} approach for the \textcolor{olive}{\textbf{non}-relaxed} pricing problem.
 				      \begin{itemize}
 					      \item Almost no works on this domain, except \parencite{jepsen2014}.
 				      \end{itemize}
@@ -180,6 +181,15 @@
 \end{frame}
 
 \begin{frame}{Conclusions and Future Work}
+	The proposed branch-and-cut pricer proved competitive at solving some PP:
+	\begin{itemize}
+		\item \textcolor{blue}{Branch-and-cut} approaches may supplement the traditional \textcolor{blue}{labeling algorithm}.
+		\item Suggesting future research on \textcolor{blue}{branch-and-cut} approaches in the context of \textbf{pricing for the CVRP}.
+		      Benefits:
+		      \begin{itemize}
+			      \item Improve performance of contemporary CVRP solvers.
+		      \end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{The end}
