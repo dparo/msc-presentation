@@ -87,17 +87,19 @@
 		\end{itemize}
 	}
 
+	\vspace{1cm}
+
 	\onslide<+->{
 
 		\begin{itemize}
 			\item \textcolor{red}{\textbf{Issues with Contemporary approaches}}:
-			      \begin{itemize}[<+->]
-				      \item \textcolor{olive}{relaxing} the PP worsens the dual bounds fed to the BPC (increasing column generation time).
+			      \begin{enumerate}
+				      \item (weak) \textcolor{olive}{relaxing} the PP worsens the dual bounds fed to the BPC (increasing column generation time).
 				            \begin{itemize}
 					            \item \textcolor{blue}{Improved in later years} thanks to "smart" relaxations \parencite{baldacci2011}.
 				            \end{itemize}
-				      \item \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} (limiting its applicability):
-			      \end{itemize}
+				      \item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} (limiting its applicability):
+			      \end{enumerate}
 		\end{itemize}
 	}
 \end{frame}
@@ -117,16 +119,27 @@
 \begin{frame}{Implementation}
 	\begin{columns}
 		\begin{column}{.85\textwidth}
-			\begin{itemize}
-				\item Branch-and-cut implementation based on the \textcolor{blue}{IBM ILOG CPLEX optimizer}.
-				\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation.
-				\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
-				\item Some implementation details:
-				      \begin{itemize}
-					      \item Separation of \textcolor{blue}{cutting-planes} both for integral and fractional solutions: GSEC, RCC, GLM.
-					      \item Push relabel max-flow and Gomory-Hu trees employed for fractional separation.
-				      \end{itemize}
-			\end{itemize}
+			\onslide<+->{
+
+				\begin{itemize}
+					\item Branch-and-cut implementation based on the \textcolor{blue}{IBM ILOG CPLEX optimizer}.
+					\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation.
+					\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
+
+				\end{itemize}
+			}
+
+			\vspace{0.5cm}
+
+			\onslide<+->{
+				\begin{itemize}
+					\item Some implementation details:
+					      \begin{itemize}
+						      \item Separation of \textcolor{blue}{cutting-planes} both for integral and fractional solutions: GSEC, RCC, GLM.
+						      \item Push relabel max-flow and Gomory-Hu trees employed for fractional separation.
+					      \end{itemize}
+				\end{itemize}
+			}
 		\end{column}
 		\begin{column}{0.15\textwidth}
 			\centering
