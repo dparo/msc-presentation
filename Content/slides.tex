@@ -40,7 +40,7 @@
 				\item \textcolor{blue}{Branch-price-and-cut} (BPC) is an \textbf{exact approach} for solving combinatorial optimization problems.
 				      \begin{itemize}
 					      \item It is an extension of traditional \textcolor{blue}{branch-and-cut} (BAC) frameworks.
-					      \item State-of-the-art VRP solvers in the last two decades \parencite{gutierrez-jarpa2010, archetti2011, bettinelli2011, contardo2014, contardo2015, pecin2017new, pecin2017improved, pessoa2020generic}.
+					      \item State-of-the-art VRP solvers in the last two decades \parencite{fukasawa2006, pessoa2008, gutierrez-jarpa2010, archetti2011, bettinelli2011, contardo2014, contardo2015, pecin2017new, pecin2017improved, pessoa2020generic}.
 					            \pause[\thebeamerpauses]
 					      \item Compared to traditional BAC frameworks, can tackle \textbf{huge} \textcolor{blue}{mixed integer programming} models described by exponential amounts of decision variables.
 				      \end{itemize}
@@ -132,7 +132,7 @@
 
 				\begin{itemize}
 					\item Branch-and-cut implementation based on the \textcolor{blue}{IBM ILOG CPLEX optimizer}.
-					\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation.
+					\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation to model the PP.
 					\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
 
 				\end{itemize}
@@ -243,6 +243,53 @@
 		                                        & \sum_{p \in P}  a_{ip} \lambda_p \ge 1       & \quad \forall i \in V_0 \label{eq:set-covering-customers-visited-by-exactly-one-route} \\
 		                                        & \lambda_p                    \in \Set*{0, 1} & \quad \forall p \in P \label{eq:set-covering-lambda-mip-var-bounds}.
 	\end{align}
+\end{frame}
+
+\begin{frame}{Master Problem (Primal)}
+	\begin{align}
+		\min_{\lambda} \quad z_\mt{MP}(\lambda) & = \sum_{p \in P}  c_p \lambda_p      & \label{eq:mp-obj-func}                                                                                                    \\
+		                                        & \sum_{p \in P} \lambda_{p} = K       & \label{eq:mp-K-routes}                                                                                                    \\
+		                                        & \sum_{p \in P}  a_{ip} \lambda_p = 1 & \quad \forall i \in V_0                                              \label{eq:mp-customers-visited-by-exactly-one-route} \\
+		                                        & 0 \le \lambda_p \le 1                & \quad \forall p \in P \label{eq:mp-lambda-mip-var-bounds}.
+	\end{align}
+\end{frame}
+
+\begin{frame}{Master Problem (Dual)}
+	\begin{align}
+		\max_{\pi} \quad z_\mt{DMP}(\pi) & =  K \pi_0 + \sum_{i \in V_0} \pi_i           & \label{eq:dmp-obj-func}                             \\
+		                                 & \pi_0 + \sum_{i \in V_0} a_{ip} \pi_i \le c_p & \quad \forall p \in P \label{eq:dmp-constraint1}    \\
+		                                 & \pi_0 \in \R                                  & \label{eq:dmp-constraint2}                          \\
+		                                 & \pi_i \in \R                                  & \quad \forall i \in V_0 \label{eq:dmp-constraint3},
+	\end{align}
+	where $\pi_0 \in \R, \pi_i \in \R \quad \forall i \in V_0$ represents the dual variables
+	associated respectively with constraints \labelcref{eq:mp-K-routes,eq:mp-customers-visited-by-exactly-one-route}.
+\end{frame}
+
+\begin{frame}{Restricted Master Problem}
+	Due to the enormous size of the set of routes $P$, evaluating the dual variables $\pi \in \R^{N}$ is computationally intractable.
+	As a result, in BAP frameworks we consider only a small subset of columns $\mcP \subseteq P$:
+	\begin{align}
+		\min_{\lambda} \quad z_\mt{RMP}(\lambda) & = \sum_{p \in \mcP}  c_p \lambda_p      & \label{eq:rmp-obj-func}                                                                                                    \\
+		                                         & \sum_{p \in \mcP} \lambda_{p} = K       & \label{eq:rmp-K-routes}                                                                                                    \\
+		                                         & \sum_{p \in \mcP}  a_{ip} \lambda_p = 1 & \quad \forall i \in V_0                                              \label{eq:rmp-customers-visited-by-exactly-one-route} \\
+		                                         & \lambda_p \ge 0                         & \quad \forall p \in \mcP \label{eq:rmp-lambda-mip-var-bounds},
+	\end{align}
+\end{frame}
+
+\begin{frame}{Pricing sub-problem}
+	We look for a column to enter the basis of the RMP,
+	which in turn necessitates the resolution of the following sub-problem:
+	\begin{equation}\label{eq:pp-problem}
+		{c^\star_p} = \min_{p \in P} \Set*{ \bar{c}_p = \sum_{e = \Set*{i, j} \in E} \Expr*{c_{e} - \frac{\pi_i + \pi_j}{2}} a_{ep}  },
+	\end{equation}
+	which takes the name of \textit{Pricing Problem} (PP).
+	Any $p \in P$ which satisfies $c_p < 0$ is a valid column which can enter the basis of the RMP.
+	The column generation procedure stops mainly under two scenarios:
+	(i) when no more negative reduced cost routes exist,
+	i.e. the PP outputs a $p^\star \in P$ achieving $c^\star_p \ge 0$
+	or
+	(ii) the CG procedure tails off.
+
 \end{frame}
 
 \begin{frame}{The Pricing Sub-problem}
