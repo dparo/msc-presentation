@@ -235,12 +235,15 @@
 
 \begin{frame}{History on CVRP solvers}
 	\begin{itemize}
-		\item Up to late 80s: tree search algorithm with Lagrangian relaxation.
-		\item 1984, 1989: First few attempts \parencite{desrosiers1984, agarwal1989setpartitioningbased} with Column Generation (unsatisfactory for CVRP).
+		\item 1961: First branch-and-price applied to the Cutting Stock Problem in \cite{gilmore1961}.
+		\item Up to late 80s: tree search algorithms employing branch-and-bound schemes: Lagrangian duality relaxation, \dots.
+		\item 1984, 1989: First (unsatisfactory) Column Generation attempts \parencite{desrosiers1984, agarwal1989setpartitioningbased}.
 		\item From late 80s to first 2000s: branch-and-cut approaches.
-		\item 1992: labeling algorithm \cite{desrochers1992}.
+		\item 1992: labeling algorithm for pricing in \cite{desrochers1992}.
 		\item 1999: infant BPC framework in \cite{kohl1999}.
 		\item 2006: Turning point in modern BPC frameworks thanks to \parencite{fukasawa2006}.
+		\item 2011: smart ng-routes relaxation for the pricing problem \parencite{baldacci2011}.
+		\item 2014-now: State-of-the-art BPC algorithms \parencite{contardo2014,pecin2017improved,pecin2017new,pessoa2020,sadykov2021,pessoa2020generic}.
 	\end{itemize}
 \end{frame}
 
