@@ -80,7 +80,7 @@
 		\begin{itemize}[<+->]
 			\item Pricing Problem (PP) in its "natural" form is an \textbf{NP-hard} combinatorial optimization problem \parencite{dror1994}.
 			      \begin{itemize}[<.->]
-				      \item \textcolor{olive}{Relaxation} of the pricing problem to make it solvable in \textcolor{blue}{pseudo-polynomial time}.
+				      \item \textcolor{olive}{Relaxation} of the PP to make it solvable in \textcolor{blue}{pseudo-polynomial time} \parencite{desrochers1988, irnich2005}.
 			      \end{itemize}
 			\item \textcolor{blue}{Dynamic programming} algorithms (exact and heuristics) to solve the \textcolor{olive}{relaxed} PP:
 			      \begin{itemize}[<.->]
@@ -231,7 +231,17 @@
 	where $A \in \R^{m \times n}, B \in \R^{m \times k}$ are matrices and
 	$c \in \R^n, d \in R^k, b \in \R^m$ are vector coefficients.
 	The bound in \cref{eq:general-mip-bound} can also be rewritten in equality and/or greater form.
+\end{frame}
 
+\begin{frame}{History on CVRP solvers}
+	\begin{itemize}
+		\item Up to late 80s: tree search algorithm with Lagrangian relaxation.
+		\item 1984, 1989: First few attempts \parencite{desrosiers1984, agarwal1989setpartitioningbased} with Column Generation (unsatisfactory for CVRP).
+		\item From late 80s to first 2000s: branch-and-cut approaches.
+		\item 1992: labeling algorithm \cite{desrochers1992}.
+		\item 1999: infant BPC framework in \cite{kohl1999}.
+		\item 2006: Turning point in modern BPC frameworks thanks to \parencite{fukasawa2006}.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Set Covering formulation}
@@ -301,8 +311,8 @@
 		      \end{itemize}
 		\item \textbf{Relax elementarity condition} to make it solvable in pseudo-polynomial time:
 		      \begin{itemize}
-			      \item $q$-routes with 2-cycles elimination \parencite{christofides1969}.
-			      \item $q$-routes with arbitrary $k$-cycles elimination \parencite{christofides1969}.
+			      \item $q$-routes with 2-cycles elimination \parencite{christofides1981exact}.
+			      \item $q$-routes with arbitrary $k$-cycles elimination \parencite{feillet2004, chabrier2006}.
 			      \item ng-routes \parencite{baldacci2011}.
 		      \end{itemize}
 		\item State-of-the-art solutions for the \textcolor{olive}{relaxed} PP are based on \textcolor{blue}{dynamic programming}:
