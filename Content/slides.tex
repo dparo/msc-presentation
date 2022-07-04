@@ -127,35 +127,33 @@
 
 \begin{frame}{Implementation}
 	\begin{columns}
-		\begin{column}{.85\textwidth}
-			\onslide<+->{
+		\begin{column}{0.85\textwidth}
+			\begin{itemize}
+				\item Branch-and-cut implementation based on the \textcolor{blue}{IBM ILOG CPLEX optimizer}.
+				\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation to model the PP.
+				\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
 
-				\begin{itemize}
-					\item Branch-and-cut implementation based on the \textcolor{blue}{IBM ILOG CPLEX optimizer}.
-					\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation to model the PP.
-					\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
-
-				\end{itemize}
-			}
-
-			\vspace{0.5cm}
-
-			\onslide<+->{
-				\begin{itemize}
-					\item Some implementation details:
-					      \begin{itemize}
-						      \item Heuristics for warm-starting (constructive + local-search).
-						      \item Separation of \textcolor{blue}{cutting-planes} both for integral and fractional solutions: GSEC, RCC \parencite{laporte1983}, GLM \parencite{gouveia1995}.
-						      \item Push relabel max-flow \parencite{goldberg1997} and Gomory-Hu trees \parencite{gomory1961} employed for fractional separation.
-					      \end{itemize}
-				\end{itemize}
-			}
+			\end{itemize}
 		\end{column}
 		\begin{column}{0.15\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{./Imgs/IBM-ILOG-CPLEX-logo.png}
 		\end{column}
 	\end{columns}
+
+	\vspace{0.5cm}
+
+	\begin{itemize}
+		\item Some implementation details:
+		      \begin{itemize}
+			      \item Heuristics for warm-starting (constructive + local-search).
+			      \item Separation of \textcolor{blue}{cutting-planes} both for integral and fractional solutions:
+			            \begin{itemize}
+				            \item GSEC, RCC \parencite{laporte1983}, GLM \parencite{gouveia1995}.
+			            \end{itemize}
+			      \item Fractional separation through push relabel max-flow \parencite{goldberg1997} and Gomory-Hu trees \parencite{gomory1961}.
+		      \end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Empirical evaluation}
