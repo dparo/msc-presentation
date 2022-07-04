@@ -177,11 +177,66 @@
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Results (1/2)}
+\newcommand{\IncludeTimeProfile}[1]{
+	\centering
+	\includegraphics[width=1.0\linewidth]{./Imgs/perfprofs/#1/Time_plot.cropped.pdf}
+}
 
+\newcommand{\IncludeDualBounds}[1]{
+	\centering
+	\includegraphics[width=1.0\linewidth]{./Imgs/perfprofs/#1/OptimalValue_plot.cropped.pdf}
+}
+
+\begin{frame}{Results (1/2)}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\IncludeTimeProfile{E-scaled-1.0}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\IncludeTimeProfile{E-scaled-4.0}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\IncludeTimeProfile{E-scaled-8.0}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\IncludeTimeProfile{E-scaled-20.0}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Results (2/2)}
+	\begin{columns}
+		\begin{column}{0.2\textwidth}
+			\IncludeDualBounds{E-scaled-1.0}
+		\end{column}
+		\begin{column}{0.2\textwidth}
+			\IncludeDualBounds{E-scaled-4.0}
+		\end{column}
+		\begin{column}{0.2\textwidth}
+			\IncludeDualBounds{E-scaled-8.0}
+		\end{column}
+		\begin{column}{0.2\textwidth}
+			\IncludeDualBounds{E-scaled-20.0}
+		\end{column}
+	\end{columns}
+	\begin{columns}
+		\begin{column}{0.2\textwidth}
+			\IncludeDualBounds{F-scaled-1.0}
+		\end{column}
+		\begin{column}{0.2\textwidth}
+			\IncludeDualBounds{F-scaled-4.0}
+		\end{column}
+		\begin{column}{0.2\textwidth}
+			\IncludeDualBounds{F-scaled-8.0}
+		\end{column}
+		\begin{column}{0.2\textwidth}
+			\IncludeDualBounds{F-scaled-20.0}
+		\end{column}
+	\end{columns}
 
 \end{frame}
 
