@@ -144,8 +144,9 @@
 				\begin{itemize}
 					\item Some implementation details:
 					      \begin{itemize}
+						      \item Heuristics for warm-starting (constructive + local-search).
 						      \item Separation of \textcolor{blue}{cutting-planes} both for integral and fractional solutions: GSEC, RCC \parencite{laporte1983}, GLM \parencite{gouveia1995}.
-						      \item Push relabel max-flow and Gomory-Hu trees employed for fractional separation.
+						      \item Push relabel max-flow \parencite{goldberg1997} and Gomory-Hu trees \parencite{gomory1961} employed for fractional separation.
 					      \end{itemize}
 				\end{itemize}
 			}
