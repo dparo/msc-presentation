@@ -5,12 +5,9 @@
 	\vspace{0.25cm}
 
 	\begin{columns}
-
 		\begin{column}{.35\textwidth}
-			\onslide<+->{
-				\centering
-				\includegraphics[height=4cm]{Imgs/CVRP-example.cropped.pdf}
-			}
+			\centering
+			\includegraphics[height=4cm]{Imgs/CVRP-example.cropped.pdf}
 		\end{column}
 		\begin{column}{.65\textwidth}
 			\onslide<+->{
@@ -42,7 +39,7 @@
 					      \item It is an extension of traditional \textcolor{blue}{branch-and-cut} (BAC) frameworks.
 					      \item State-of-the-art VRP solvers in the last two decades \parencite{fukasawa2006, pessoa2008, gutierrez-jarpa2010, archetti2011, bettinelli2011, contardo2014, contardo2015, pecin2017new, pecin2017improved, pessoa2020generic}.
 					            \pause[\thebeamerpauses]
-					      \item Compared to traditional BAC frameworks, can tackle \textbf{huge} \textcolor{blue}{mixed integer programming} models described by exponential amounts of decision variables.
+					      \item Compared to traditional BAC frameworks, can tackle \textbf{huge} \textcolor{blue}{mixed integer programming models} described by exponential amounts of decision variables.
 				      \end{itemize}
 			\end{itemize}
 		\end{column}
@@ -75,36 +72,29 @@
 \end{frame}
 
 \begin{frame}{Contemporary Approaches for Pricing}
-	\onslide<+->{
+	\begin{itemize}[<+->]
+		\item Pricing Problem (PP) in its "natural" form is an \textbf{NP-hard} combinatorial optimization problem \parencite{dror1994}:
+		      \begin{equation}\label{eq:pp-problem}
+			      {c^\star_p} = \min_{p \in P} \Set*{ \bar{c}_p = \sum_{e = \Set*{i, j} \in E} \Expr*{c_{e} - \frac{\pi_i + \pi_j}{2}} a_{ep}  }.
+		      \end{equation}
+		\item \textcolor{olive}{Relaxation} of the PP to make it solvable in \textcolor{blue}{pseudo-polynomial time} \parencite{desrochers1988, irnich2005}.
+		\item \textcolor{blue}{Dynamic programming} algorithms (exact and heuristics) to solve the \textcolor{olive}{relaxed} PP:
+		      \begin{itemize}[<.->]
+			      \item \textbf{labeling algorithm} proposed in \textcite{desrochers1992,feillet2004}
+		      \end{itemize}
 
-		\begin{itemize}[<+->]
-			\item Pricing Problem (PP) in its "natural" form is an \textbf{NP-hard} combinatorial optimization problem \parencite{dror1994}.
-			      \begin{itemize}[<.->]
-				      \item \textcolor{olive}{Relaxation} of the PP to make it solvable in \textcolor{blue}{pseudo-polynomial time} \parencite{desrochers1988, irnich2005}.
-			      \end{itemize}
-			\item \textcolor{blue}{Dynamic programming} algorithms (exact and heuristics) to solve the \textcolor{olive}{relaxed} PP:
-			      \begin{itemize}[<.->]
-				      \item \textbf{labeling algorithm} proposed in \textcite{desrochers1992,feillet2004}
-			      \end{itemize}
+	\end{itemize}
+\end{frame}
 
-		\end{itemize}
-	}
-
-	\vspace{0.5cm}
-
-	\onslide<+->{
-
-		\begin{itemize}
-			\item \textcolor{red}{\textbf{Two major issues with contemporary approaches}}:
-			      \begin{enumerate}[<+->]
-				      \item (weak) \textcolor{olive}{relaxing} the PP worsens the dual bounds fed to the BPC (increasing column generation time).
-				            \begin{itemize}[<.->]
-					            \item \textcolor{blue}{Improved in last decade} thanks to "smart" relaxations \parencite{baldacci2011}.
-				            \end{itemize}
-				      \item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} (longer routes), limiting its applicability to modern distribution problems.
-			      \end{enumerate}
-		\end{itemize}
-	}
+\begin{frame}{Issues with Contemporary Approaches}
+	\textcolor{red}{\textbf{Two major issues with contemporary approaches}}:
+	\begin{enumerate}[<+->]
+		\item (weak) \textcolor{olive}{relaxing} the PP worsens the dual bounds fed to the BPC (increasing column generation time).
+		      \begin{itemize}[<.->]
+			      \item \textcolor{blue}{Improved in last decade} thanks to "smart" relaxations \parencite{baldacci2011}.
+		      \end{itemize}
+		\item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} (longer routes), limiting its applicability to modern distribution problems.
+	\end{enumerate}
 \end{frame}
 
 \begin{frame}{Contributions}
@@ -350,7 +340,7 @@
 \begin{frame}{Pricing sub-problem}
 	We look for a column to enter the basis of the RMP,
 	which in turn necessitates the resolution of the following sub-problem:
-	\begin{equation}\label{eq:pp-problem}
+	\begin{equation}\label{eq:pp-problem-2nd-time}
 		{c^\star_p} = \min_{p \in P} \Set*{ \bar{c}_p = \sum_{e = \Set*{i, j} \in E} \Expr*{c_{e} - \frac{\pi_i + \pi_j}{2}} a_{ep}  },
 	\end{equation}
 	which takes the name of \textit{Pricing Problem} (PP).
