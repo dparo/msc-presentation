@@ -73,7 +73,10 @@
 
 \begin{frame}{Contemporary Approaches for Pricing}
 	\begin{itemize}[<+->]
-		\item Pricing Problem (PP) in its "natural" form is an \textbf{NP-hard} combinatorial optimization problem \parencite{dror1994}:
+		\item Pricing Problem (PP) in its "natural" form is an \textbf{NP-hard} combinatorial optimization problem \parencite{dror1994}.
+		      \begin{itemize}[<.->]
+			      \item An \textcolor{blue}{Elementary Shortest Path Problem with Resource Constraints} (\textbf{ESPPRC}) in a reduced cost network with negative cycles:
+		      \end{itemize}
 		      \begin{equation}\label{eq:pp-problem}
 			      {c^\star_p} = \min_{p \in P} \Set*{ \bar{c}_p = \sum_{e = \Set*{i, j} \in E} \Expr*{c_{e} - \frac{\pi_i + \pi_j}{2}} a_{ep}  }.
 		      \end{equation}
@@ -353,22 +356,13 @@
 
 \end{frame}
 
-\begin{frame}{The Pricing Sub-problem}
-	To advance the column generation, the \textcolor{blue}{pricer}, a critical component in BPC frameworks, needs to solve the \textcolor{blue}{pricing sub-problem} (PP):
+\begin{frame}{Pricing Sub-problem Relaxations}
 	\begin{itemize}
-		\item An \textcolor{blue}{Elementary Shortest Path Problem with Capacity Constraints} (\textbf{ESPPCC}) in a reduced cost network with negative cycles.
-		      \begin{itemize}
-			      \item NP-hard problem \parencite{dror1994}.
-		      \end{itemize}
-		\item \textbf{Relax elementarity condition} to make it solvable in pseudo-polynomial time:
+		\item \textbf{Relax elementarity condition} to make the PP solvable in pseudo-polynomial time:
 		      \begin{itemize}
 			      \item $q$-routes with 2-cycles elimination \parencite{christofides1981exact}.
 			      \item $q$-routes with arbitrary $k$-cycles elimination \parencite{feillet2004, chabrier2006}.
 			      \item ng-routes \parencite{baldacci2011}.
-		      \end{itemize}
-		\item State-of-the-art solutions for the \textcolor{olive}{relaxed} PP are based on \textcolor{blue}{dynamic programming}:
-		      \begin{itemize}
-			      \item \textbf{labeling algorithm} \parencite{desrochers1992, feillet2004}.
 		      \end{itemize}
 	\end{itemize}
 \end{frame}
