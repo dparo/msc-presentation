@@ -31,44 +31,45 @@
 \end{frame}
 
 \begin{frame}{Branch-price-and-cut}
-	\begin{columns}
-		\begin{column}{.7\textwidth}
-			\begin{itemize}[<+->]
-				\item \textcolor{blue}{Branch-price-and-cut} (BPC) is an \textbf{exact approach} for solving combinatorial optimization problems.
-				      \begin{itemize}
-					      \item It is an extension of traditional \textcolor{blue}{branch-and-cut} (BAC) frameworks.
-					      \item State-of-the-art VRP solvers in the last two decades \parencite{fukasawa2006, pessoa2008, gutierrez-jarpa2010, archetti2011, bettinelli2011, contardo2014, contardo2015, pecin2017new, pecin2017improved, pessoa2020generic}.
-					            \pause[\thebeamerpauses]
-					      \item Compared to traditional BAC frameworks, can tackle \textbf{huge} \textcolor{blue}{mixed integer programming models} described by exponential amounts of decision variables.
-				      \end{itemize}
-			\end{itemize}
-		\end{column}
-		\begin{column}{.3\textwidth}
-			{
-				\fontsize{9.5pt}{9.5pt}\selectfont
+	\onslide<+->{
+		\begin{columns}
+			\begin{column}{.7\textwidth}
+				\begin{itemize}
+					\item In the last two decades, state-of-the-art VRP solvers \parencite{fukasawa2006, pessoa2008, gutierrez-jarpa2010, archetti2011, bettinelli2011, contardo2014, contardo2015, pecin2017new, pecin2017improved, pessoa2020generic}.
+					\item \textcolor{blue}{Branch-price-and-cut} (BPC) is an \textbf{exact approach} for solving combinatorial optimization problems.
+					      \begin{itemize}
+						      \item Extension of traditional \textcolor{blue}{branch-and-cut} (BAC).
+						      \item Can tackle \textcolor{blue}{\textbf{extensive} mixed integer programming models}.
+					      \end{itemize}
+				\end{itemize}
+			\end{column}
+			\begin{column}{.3\textwidth}
+				{
+					\fontsize{9.5pt}{9.5pt}\selectfont
 
-				\begin{align*}
-					\min_{\lambda} \quad z_\mt{SC}(\lambda) & = \sum_{p \in P}  c_p \lambda_p                                      \\
-					                                        & \sum_{p \in P} \lambda_{p} = K                                       \\
-					                                        & \sum_{p \in P}  a_{ip} \lambda_p \ge 1       \quad \forall i \in V_0 \\
-					                                        & \lambda_p                    \in \Set*{0, 1} \quad \forall p \in P.
-				\end{align*}
-			}
-		\end{column}
-	\end{columns}
+					\begin{align*}
+						\min_{\lambda} \quad z_\mt{SC}(\lambda) & = \sum_{p \in P}  c_p \lambda_p                                      \\
+						                                        & \sum_{p \in P} \lambda_{p} = K                                       \\
+						                                        & \sum_{p \in P}  a_{ip} \lambda_p \ge 1       \quad \forall i \in V_0 \\
+						                                        & \lambda_p                    \in \Set*{0, 1} \quad \forall p \in P.
+					\end{align*}
+				}
+			\end{column}
+		\end{columns}
+	}
 
-	\pause[\thebeamerpauses]
-
-	\begin{itemize}[<+->]
-		\item \textcolor{red}{How?}
-		      \begin{itemize}
-			      \item \textcolor{blue}{Column Generation} (CG): decision variables are generated lazily.
-			            \begin{itemize}
-				            \item In VRP, decision variables represent \textcolor{blue}{single vehicle feasible routes}.
-			            \end{itemize}
-			      \item \textcolor{red}{\textbf{Pricing}} in CVRP, is the art of feeding the BPC approach with good reduced cost routes to bring it towards fast optimality convergence.
-		      \end{itemize}
-	\end{itemize}
+	\onslide<+->{
+		\begin{itemize}
+			\item \textcolor{red}{How?}
+			      \begin{itemize}
+				      \item \textcolor{blue}{Column Generation} (CG): decision variables are generated lazily.
+				            \begin{itemize}
+					            \item In VRP, decision variables represent \textcolor{blue}{single vehicle feasible routes}.
+				            \end{itemize}
+				      \item \textcolor{red}{\textbf{Pricing}} in CVRP, is the art of feeding the BPC approach with good reduced cost routes to bring it towards fast optimality convergence.
+			      \end{itemize}
+		\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{Contemporary Approaches for Pricing}
