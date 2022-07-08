@@ -126,9 +126,9 @@
 	\begin{columns}
 		\begin{column}{0.85\textwidth}
 			\begin{itemize}
+				\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
 				\item Branch-and-cut implementation based on the \textcolor{blue}{IBM ILOG CPLEX optimizer}.
 				\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation to model the PP.
-				\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
 
 			\end{itemize}
 		\end{column}
@@ -138,7 +138,7 @@
 		\end{column}
 	\end{columns}
 
-	\vspace{0.5cm}
+	\vspace{0.2cm}
 
 	\begin{itemize}
 		\item Some implementation details:
@@ -148,6 +148,7 @@
 			            \begin{itemize}
 				            \item GSEC, RCC \parencite{laporte1983}, GLM \parencite{gouveia1995}.
 			            \end{itemize}
+			      \item Integral separation by tracking major connected components.
 			      \item Fractional separation through push relabel max-flow \parencite{goldberg1997} and Gomory-Hu trees \parencite{gomory1961}.
 		      \end{itemize}
 	\end{itemize}
