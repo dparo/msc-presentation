@@ -35,7 +35,7 @@
 		\begin{columns}
 			\begin{column}{.7\textwidth}
 				\begin{itemize}
-					\item In the last two decades, state-of-the-art VRP solvers \parencite{fukasawa2006, pessoa2008, gutierrez-jarpa2010, archetti2011, bettinelli2011, contardo2014, contardo2015, pecin2017new, pecin2017improved, pessoa2020generic}.
+					\item In the last two decades, the most efficient VRP solvers are all based on branch-price-and-cut approaches \cite{fukasawa2006, pessoa2008, gutierrez-jarpa2010, archetti2011, bettinelli2011, contardo2014, contardo2015, pecin2017new, pecin2017improved, pessoa2020generic}.
 					\item \textcolor{blue}{Branch-price-and-cut} (BPC) is an \textbf{exact approach} for solving combinatorial optimization problems.
 					      \begin{itemize}
 						      \item Extension of traditional \textcolor{blue}{branch-and-cut} (BAC).
@@ -144,12 +144,12 @@
 		\item Some implementation details:
 		      \begin{itemize}
 			      \item Heuristics for warm-starting (constructive + local-search).
-			      \item Separation of \textcolor{blue}{cutting-planes} both for integral and fractional solutions:
+			      \item Inclusion of several \textcolor{blue}{cutting-planes}:
 			            \begin{itemize}
 				            \item GSEC, RCC \parencite{laporte1983}, GLM \parencite{gouveia1995}.
+				            \item Integral separation by tracking major connected components.
+				            \item Fractional separation through push relabel max-flow \parencite{goldberg1997} and Gomory-Hu trees \parencite{gomory1961}.
 			            \end{itemize}
-			      \item Integral separation by tracking major connected components.
-			      \item Fractional separation through push relabel max-flow \parencite{goldberg1997} and Gomory-Hu trees \parencite{gomory1961}.
 		      \end{itemize}
 	\end{itemize}
 \end{frame}
