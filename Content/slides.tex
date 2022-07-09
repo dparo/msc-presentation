@@ -100,7 +100,7 @@
 		      \begin{itemize}[<.->]
 			      \item \textcolor{blue}{Improved in last decade} thanks to "smart" \textcolor{olive}{relaxations} \parencite{baldacci2011}.
 		      \end{itemize}
-		\item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} (longer routes), limiting its applicability to modern distribution problems.
+		\item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} $O(N^2 Q)$ (longer routes), limiting its applicability to modern distribution problems.
 	\end{enumerate}
 \end{frame}
 
@@ -283,6 +283,7 @@
 
 \begin{frame}{History on CVRP exact solvers}
 	\begin{itemize}
+		\item 1959: The CVRP was first introduced in \cite{dantzig1959}.
 		\item 1961: First branch-and-price applied to the Cutting Stock Problem in \cite{gilmore1961}.
 		\item Up to late 80s: tree search algorithms employing branch-and-bound schemes: Lagrangian duality relaxation, \dots.
 		\item Mid 80s: First Column Generation attempts \parencite{desrosiers1984, agarwal1989setpartitioningbased}.
