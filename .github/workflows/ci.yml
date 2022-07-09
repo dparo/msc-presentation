@@ -13,7 +13,7 @@ jobs:
 
       - name: Install LaTex
         run: |
-          sudo apt-get install --no-install-recommends texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-extra-utils texlive-science texlive-bibtex-extra lmodern biber latexmk
+          sudo apt-get install --no-install-recommends texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-extra-utils texlive-science texlive-bibtex-extra lmodern biber latexmk ghostscript
 
       - name: Compile LaTex document
         run: |
