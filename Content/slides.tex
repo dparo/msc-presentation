@@ -66,7 +66,7 @@
 				            \begin{itemize}
 					            \item In VRP, decision variables represent \textcolor{blue}{single vehicle feasible routes}.
 				            \end{itemize}
-				      \item \textcolor{red}{\textbf{Pricing}} in CVRP, is the art of feeding the BPC approach with good reduced cost routes to bring it towards fast optimality convergence.
+				      \item \textcolor{red}{\textbf{Pricing}}: determines the optimal \textcolor{blue}{reduced-cost decision variables} for their inclusion.
 			      \end{itemize}
 		\end{itemize}
 	}
@@ -81,15 +81,14 @@
 		      \begin{equation}\label{eq:pp-problem}
 			      {c^\star_p} = \min_{p \in P} \Set*{ \bar{c}_p = \sum_{e = \Set*{i, j} \in E} \Expr*{c_{e} - \frac{\pi_i + \pi_j}{2}} a_{ep}  }.
 		      \end{equation}
-		\item \textcolor{olive}{Relaxation} of the PP to make it solvable in \textcolor{blue}{pseudo-polynomial time} \parencite{desrochers1988, irnich2005}.
-		\item \textcolor{blue}{Dynamic programming} algorithms (exact and heuristics) to solve the \textcolor{olive}{relaxed} PP:
+		\item PP hard $\,\to\,$ \textcolor{olive}{Relaxation} of the PP.
 		      \begin{itemize}[<.->]
-			      \item \textbf{labeling algorithm} proposed in \citeyear{desrochers1992} by \textcite{desrochers1992}.
+			      \item \textcolor{olive}{Relaxed} PP is solvable in \textcolor{blue}{pseudo-polynomial time} \parencite{desrochers1988, irnich2005} via efficient \textcolor{blue}{dynamic programming} algorithms.
 			            \begin{itemize}[<.->]
-				            \item Extended to handle elementarity condition in \citeyear{feillet2004} by \textcite{feillet2004}.
+				            \item \textbf{labeling algorithm} proposed in \citeyear{desrochers1992} in \cite{desrochers1992}.
+				            \item Labeling algorithm extended to handle elementarity condition in \citeyear{feillet2004} in \cite{feillet2004}.
 			            \end{itemize}
 		      \end{itemize}
-
 	\end{itemize}
 \end{frame}
 
@@ -126,8 +125,8 @@
 	\begin{columns}
 		\begin{column}{0.85\textwidth}
 			\begin{itemize}
-				\item Implemented in \texttt{C} and available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
-				\item Branch-and-cut implementation based on the \textcolor{blue}{IBM ILOG CPLEX optimizer}.
+				\item Available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
+				\item Implemented in \texttt{C} using the commercial \textcolor{blue}{IBM ILOG CPLEX optimizer}.
 				\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation to model the PP.
 
 			\end{itemize}
