@@ -17,7 +17,7 @@
 						      \item The amount of \textcolor{blue}{available vehicles} with their \textcolor{blue}{capacity}.
 						      \item A \textcolor{blue}{central depot} where vehicles are stationed.
 						      \item Customers' \textcolor{blue}{locations}.
-						      \item The \textcolor{blue}{demands} of the individual customers.
+						      \item The \textcolor{blue}{demands} (in units) of the individual customers.
 					      \end{itemize}
 
 					\item Objective:
@@ -74,7 +74,7 @@
 
 \begin{frame}{Contemporary Approaches for Pricing}
 	\begin{itemize}[<+->]
-		\item Pricing Problem (PP) in its "natural" form is an \textbf{NP-hard} combinatorial optimization problem \parencite{dror1994}.
+		\item Pricing Problem (PP) in its "natural" form is an induced \textbf{NP-hard} combinatorial optimization problem \parencite{dror1994}.
 		      \begin{itemize}[<.->]
 			      \item An \textcolor{blue}{Elementary Shortest Path Problem with Resource Constraints} (\textbf{ESPPRC}) in a reduced cost network with negative cycles:
 		      \end{itemize}
@@ -95,9 +95,9 @@
 \begin{frame}{Issues with Contemporary Approaches}
 	\textcolor{red}{\textbf{Two major issues with contemporary approaches}}:
 	\begin{enumerate}
-		\item (weak) \textcolor{olive}{relaxing} the PP worsens the dual bounds fed to the BPC (increasing column generation time).
+		\item (weak) \textcolor{olive}{relaxing} the PP weakens the dual bounds fed to the BPC (increasing column generation time).
 		      \begin{itemize}[<.->]
-			      \item \textcolor{blue}{Improved in last decade} thanks to "smart" \textcolor{olive}{relaxations} \parencite{baldacci2011}.
+			      \item \textcolor{blue}{Recently alleviated} thanks to recent developments of \textcolor{olive}{efficacious relaxations} \parencite{baldacci2011}.
 		      \end{itemize}
 		\item (strong) \textbf{Labeling} algorithm's performance degrades as the \textcolor{blue}{vehicle capacity increases} $O(N^2 Q)$ (longer routes), limiting its applicability to modern distribution problems.
 	\end{enumerate}
