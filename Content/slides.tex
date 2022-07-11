@@ -371,9 +371,43 @@
 \end{frame}
 
 \begin{frame}{\bapcod{}}
-	\bapcod{} \cite{sadykov2021}: is a BPC framework  developed in France at the Bordeaux University and Bordeaux Research Center.
+	\bapcod{} \parencite{sadykov2021} is a software package
+	developed in France at the Bordeaux University and Bordeaux Research Center
+	that embeds a sophisticated column generation approach
+	embedded in a generic and modern branch-price-and-cut (BPC) algorithm.
+
 	\begin{itemize}
 		\item Currently state-of-the-art in solving routing problems.
-		\item Parametrized accordingly (disabled non-robust inequalities).
+		\item Takes as input a compact midex-integer programming model and solves it using a Dantzig-Wolfe reformulation \parencite{dantzig1960}.
+		\item Sses an automatic dual price smoothing stabilization \parencite{pessoa2018automation}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\vrpsolver{}}
+	The \vrpsolver{} extension \parencite{pessoa2020generic}, is
+	a \bapcod{} extension distributed by the same authors.
+	This extension includes an
+	advanced implementation of a bidirectional dynamic programming labeling algorithm
+	\parencite{sadykov2021bucket} for solving the pricing problem.
+	The included labeling algorithm
+	can be used as an exact or heuristic pricer.
+	The labeling algorithm contains two successively lighter heuristic implementations;
+	for more information, see \textcite{sadykov2021bucket}.
+
+	The \vrpsolver{} extension, also,
+	includes the implementation of some
+	specific cutting planes and branching decisions
+	aimed at efficiently solving routing-like problems
+	(or problems that exhibit similar structures)
+	such as the CVRP, VRPTW, and also others (see \cite{pessoa2020generic}).
+
+\end{frame}
+
+\begin{frame}{\bapcod{} parametrization}
+	\begin{itemize}
+		\item Disabled non-robust inequalities.
+		\item Disabled multiple columns per pricing iteration.
+		\item Increased ng-sets size and disable tailing off condition.
+		\item Disabled any form of branching and cut-generation to stop the resolution process at the root node.
 	\end{itemize}
 \end{frame}
