@@ -110,8 +110,9 @@
 			\includegraphics[width=\textwidth]{./Imgs/idea.png}
 		\end{column}
 		\begin{column}{0.7\textwidth}
+			We propose a different approach to pricing:
 			\begin{enumerate}
-				\item An exact \textcolor{blue}{branch-and-cut} approach for the \textcolor{olive}{\textbf{non}-relaxed} pricing problem.
+				\item An exact \textcolor{blue}{branch-and-cut} algorithm for solving the \textcolor{olive}{\textbf{non}-relaxed} pricing problem.
 				      \begin{itemize}
 					      \item Almost no works on this domain, except \parencite{jepsen2014}.
 				      \end{itemize}
@@ -125,10 +126,9 @@
 	\begin{columns}
 		\begin{column}{0.85\textwidth}
 			\begin{itemize}
-				\item Available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
 				\item Implemented in \texttt{C} using the commercial \textcolor{blue}{IBM ILOG CPLEX optimizer}.
-				\item The \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014} was used as the base IP formulation to model the PP.
-
+				\item The PP is modeled as a \textbf{Capacitated Profitable Tour Problem} (CPTP) \parencite{jepsen2014}.
+				\item Available online\footnote[1]{\url{https://github.com/dparo/master-thesis}} under a permissive license.
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.15\textwidth}
