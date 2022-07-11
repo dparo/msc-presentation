@@ -163,11 +163,7 @@
 			\begin{itemize}
 				\item We've modified the commonly employed traditional instances proposed in
 				      \cite{dantzig1959, christofides1969, gaskell1967bases, gillett1974heuristic,christofides1979vehicle,fisher1994,augerat1995}.
-				\item \bapcod{}: State-of-the-art BPC of \cite{sadykov2021bucket} developed in France at the Bordeaux University and Bordeaux Research Center.
-				      \begin{itemize}
-					      \item Parametrized accordingly (disabled non-robust inequalities).
-				      \end{itemize}
-				\item Time the \bapcod{}'s labeling algorithm \cite{pessoa2020generic} and our BAC in solving the harder PPs.
+				\item Measure the running time of the current \textcolor{blue}{state-of-the-art labeling algorithm} \cite{pessoa2020generic} and compare it against our \textcolor{blue}{BAC pricer}.
 				\item Running time depicted through \textbf{performance profiles} \parencite{dolan2002}.
 			\end{itemize}
 		\end{column}
@@ -230,14 +226,12 @@
 \end{frame}
 
 \begin{frame}{Conclusions and Future Work}
-	The proposed branch-and-cut pricer proved competitive at solving some PP:
+	Although our study is to be considered an indication on the genuine efficiency of the two approaches:
 	\begin{itemize}
-		\item \textcolor{blue}{Branch-and-cut} approaches may supplement the traditional \textcolor{blue}{labeling algorithm}.
-		\item Suggesting future research on \textcolor{blue}{branch-and-cut} approaches in the context of \textbf{pricing for the CVRP}.
-		      Benefits:
-		      \begin{itemize}
-			      \item Improve performance of contemporary CVRP solvers.
-		      \end{itemize}
+		\item We proved that \textcolor{blue}{branch-and-cut} may supplement the traditional \textcolor{blue}{labeling algorithm},
+		      especially in solving PP with \textcolor{blue}{non-stringent vehicle capacities}.
+		\item Suggesting future research on \textcolor{blue}{branch-and-cut} approaches in the context of \textbf{pricing for the CVRP},
+		      may bring substantial benefits to contemporary CVRP solvers.
 	\end{itemize}
 \end{frame}
 
@@ -374,4 +368,12 @@
 		                                   & x_{e}                   \in \Set*{0, 1}  & \quad \forall e \in E               \label{eq:cptp-x-mip-var-bounds}                                  \\
 		                                   & y_{i}                    \in \Set*{0, 1} & \quad \forall i \in V             \label{eq:cptp-y-mip-var-bounds}.
 	\end{align}
+\end{frame}
+
+\begin{frame}{\bapcod{}}
+	\bapcod{} \cite{sadykov2021}: is a BPC framework  developed in France at the Bordeaux University and Bordeaux Research Center.
+	\begin{itemize}
+		\item Currently state-of-the-art in solving routing problems.
+		\item Parametrized accordingly (disabled non-robust inequalities).
+	\end{itemize}
 \end{frame}
