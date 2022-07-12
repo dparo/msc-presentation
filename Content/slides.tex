@@ -257,6 +257,30 @@
 	\end{center}
 \end{frame}
 
+\begin{frame}{Possible Improvements}
+	\begin{itemize}
+		\item \textbf{Technological level}:
+		      \begin{itemize}
+			      \item Extend the approach to  other routing problems, such as the VRPTW.
+			      \item Integrate newer cutting-plane strategies.
+			      \item Hybridize the BAC approach with the labeling algorithm.
+			      \item Add support for non-robust cuts.
+			      \item Implement the efficient ng-routes relaxation \parencite{baldacci2011} within a BAC scheme.
+			      \item Implement Decremental State Space Relaxation (DSSR) \parencite{boland2006, righini2008}.
+		      \end{itemize}
+		\item \textbf{Implementation level}:
+		      \begin{itemize}
+			      \item Use heuristic separation procedures whenever possible to separate the cutting-planes.
+			      \item Implement an effective branching strategy.
+			      \item Try out compact IP formulations and their cutting-planes.
+		      \end{itemize}
+		\item \textbf{Setup level}:
+		      \begin{itemize}
+			      \item Integrate the BAC algorithm inside a BPC framework to assess more metrics for the running time comparison.
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
 \appendix
 
 \begin{frame}
