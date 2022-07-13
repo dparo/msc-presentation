@@ -66,7 +66,7 @@
 				            \begin{itemize}
 					            \item In VRP, decision variables represent \textcolor{blue}{single vehicle feasible routes}.
 				            \end{itemize}
-				      \item \textcolor{red}{\textbf{Pricing}}: determines the optimal \textcolor{blue}{reduced-cost decision variables} for their inclusion.
+				      \item \textcolor{red}{\textbf{Pricing}}: determines the most optimal \textcolor{blue}{reduced-cost decision variables} for their inclusion.
 			      \end{itemize}
 		\end{itemize}
 	}
@@ -76,30 +76,30 @@
 	\begin{itemize}[<+->]
 		\item Pricing Problem (PP) in its "natural" form is an induced \textbf{NP-hard} combinatorial optimization problem \parencite{dror1994}.
 		      \begin{itemize}[<.->]
-			      \item An \textcolor{blue}{Elementary Shortest Path Problem with Resource Constraints} (\textbf{ESPPRC}) in a reduced cost network with negative cycles:
+			      \item It asks for an \textcolor{blue}{Elementary Shortest Path Problem with Resource Constraints} (\textbf{ESPPRC}) in a reduced cost network with negative cycles:
 		      \end{itemize}
 		      \begin{equation}\label{eq:pp-problem}
 			      {c^\star_p} = \min_{p \in P} \Set*{ \bar{c}_p = \sum_{e = \Set*{i, j} \in E} \Expr*{c_{e} - \frac{\pi_i + \pi_j}{2}} a_{ep}  }.
 		      \end{equation}
-		\item PP hard $\,\to\,$ \textcolor{olive}{Relaxation} of the PP.
+		\item High pricing complexity $\,\to\,$ \textcolor{olive}{Relaxation} of the PP.
 		      \begin{itemize}[<.->]
 			      \item \textcolor{olive}{Relaxed} PP is solvable in \textcolor{blue}{pseudo-polynomial time} \parencite{desrochers1988, irnich2005} via efficient \textcolor{blue}{dynamic programming} algorithms.
 			            \begin{itemize}[<.->]
 				            \item \textbf{Labeling algorithm} proposed in \citeyear{desrochers1992} in \cite{desrochers1992}.
-				            \item Labeling algorithm extended to handle elementarity condition in \citeyear{feillet2004} in \cite{feillet2004}.
+				            \item Labeling algorithm extended to handle elementarity in \citeyear{feillet2004} in \cite{feillet2004}.
 			            \end{itemize}
 		      \end{itemize}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Issues with Contemporary Approaches}
-	\textcolor{red}{\textbf{Two major issues with contemporary approaches}}:
+	\textcolor{red}{\textbf{Contemporary approaches for pricing present two main limitations}}:
 	\begin{enumerate}
-		\item (weak) \textcolor{olive}{relaxing} the PP weakens the dual bounds fed to the BPC (increasing column generation time).
+		\item (minor) \textcolor{olive}{relaxing} the PP weakens the dual bounds fed to the BPC (increasing column generation time).
 		      \begin{itemize}[<.->]
-			      \item \textcolor{blue}{Recently alleviated} thanks to recent developments of \textcolor{olive}{efficacious relaxations} \parencite{baldacci2011}.
+			      \item In recent years, greatly \textcolor{blue}{alleviated} thanks to the development of \textcolor{olive}{efficacious relaxations} \parencite{baldacci2011}.
 		      \end{itemize}
-		\item (strong) \textbf{Labeling} algorithm's \textcolor{blue}{speed decreases} as the \textcolor{blue}{vehicle capacity increases} $O(N^2 Q)$ (longer routes), limiting its applicability to modern distribution problems.
+		\item (significant) \textbf{Labeling} algorithm's \textcolor{blue}{speed decreases} as the \textcolor{blue}{vehicle capacity increases} $O(N^2 Q)$ (longer routes), limiting its applicability to modern distribution problems.
 	\end{enumerate}
 \end{frame}
 
@@ -161,14 +161,14 @@
 		\end{column}
 		\begin{column}{0.8\textwidth}
 			\begin{itemize}
-				\item We've modified the commonly employed traditional instances proposed in
+				\item We've utilized the commonly employed instances of the literature proposed in
 				      \cite{dantzig1959, christofides1969, gaskell1967bases, gillett1974heuristic,christofides1979vehicle,fisher1994,augerat1995}.
 				      \begin{itemize}
 					      \item Generated new instances by scaling the \textcolor{blue}{vehicle capacities}.
 				      \end{itemize}
-				\item The running times of the two pricing approaches are depicted through \textbf{performance profiles} \parencite{dolan2002}:
+				\item The computation times of the two pricing approaches are depicted through \textbf{performance profiles} \parencite{dolan2002}:
 				      \begin{itemize}
-					      \item \textcolor{blue}{Slim representation} to compare optimization algorithms.
+					      \item Provide a \textcolor{blue}{slim representation} to compare optimization algorithms.
 				      \end{itemize}
 			\end{itemize}
 		\end{column}
@@ -235,8 +235,8 @@
 		\begin{column}{0.75\textwidth}
 			Although our study is an indication on the genuine efficiency of the two approaches:
 			\begin{itemize}
-				\item We proved that \textcolor{blue}{branch-and-cut} may supplement the traditional \textcolor{blue}{labeling algorithm},
-				      especially in solving PP with \textcolor{blue}{non-stringent vehicle capacities}.
+				\item We proved that \textcolor{blue}{branch-and-cut} approaches may supplement the traditional \textcolor{blue}{labeling algorithm},
+				      specifically in solving PP with \textcolor{blue}{non-stringent capacities}.
 				\item Suggesting future research on \textcolor{blue}{branch-and-cut} approaches in the context of \textbf{pricing for the CVRP},
 				      may bring substantial benefits to contemporary CVRP solvers.
 			\end{itemize}
